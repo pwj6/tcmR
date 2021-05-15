@@ -2,7 +2,7 @@
 % Please edit documentation in R/h2t.R
 \name{h2t}
 \alias{h2t}
-\title{How to make herb to symbol and fullname}
+\title{How to make herb to targets}
 \usage{
 h2t(x, type = "latin", tSource = "tcmsp", output = "symbol")
 }
@@ -19,7 +19,7 @@ h2t(x, type = "latin", tSource = "tcmsp", output = "symbol")
 symbol and fullname
 }
 \description{
-How to make herb to symbol and fullname
+How to make herb to targets
 }
 \examples{
 .h2t(x='Ziziphi Spinosae Semen',type='latin',tSource="tcmsp",output='symbol')

@@ -1,4 +1,4 @@
-#' How to make herb to symbol and fullname
+#' How to make herb to targets
 #'
 #' @param x is the information adout herb
 #' @param type is the type of the x
