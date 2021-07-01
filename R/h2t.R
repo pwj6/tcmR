@@ -47,7 +47,7 @@ h2t<-function(x,type="latin",tSource="tcmsp",output="symbol")
       else
       {
         if(tSource=="tcmsp")
-          y <- drugtarget[herb==x,][,c(3,4,20,1,21,5,13)]
+          y <- drugtarget[herb==x,][,c(1,2,3,5,19,24,9,10)]
         else
           y <- pubchemtarget[herb==x,][,c(1,2,3,4)]
           }

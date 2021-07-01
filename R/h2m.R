@@ -28,7 +28,7 @@ h2m<-function(x,type="latin")
   }
   {
     if(length(x)==1)
-      y <- drugchem[herb==x,][,c(3,14)]
+      y <- drugchem[herb==x,][,c(3,2,5)]
     else
       y<-NA
   }

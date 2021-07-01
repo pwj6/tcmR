@@ -29,13 +29,13 @@ hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID"){
   }
   {
     if(length(hb)==1)
-      y <- drugtarget[herb==hb,][,c(3,4,1,21)]
+      y <- drugtarget[herb==hb,][,c(1,2,3,5,19,24,9,10)]
     else
       y<-NA
   }
   {
     if(length(hb)==1)
-      m <- drugchem[herb==hb,][,c(2,3,4,12,14)]
+      m <- drugchem[herb==hb,][,c(3,2,5,9,10)]
     else
       m <-NA
   }

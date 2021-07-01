@@ -31,14 +31,14 @@ m2t<-function(x,type="cid",tSource="tcmsp")
     if(type=="cid")
     {
       if(tSource=="tcmsp")
-        y<-chemtarget[cid==x,][,c(3,19,1,20)]
+        y<-chemtarget[cid==x,][,c(1,2,4,18,23)]
       else
         y <- pubchemtarget[cid==x,][,c(2,3,4)]
     }
       else
     {
       if(tSource=="tcmsp")
-        y<-chemtarget[molecule==x,][,c(3,19,1,20)]
+        y<-chemtarget[molecule==x,][,c(1,2,4,18,23)]
       else
         y <- pubchemtarget[molecule==x,][,c(2,3,4)]
     }
