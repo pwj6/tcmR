@@ -22,9 +22,9 @@ herb information
 How to make molecule to herb
 }
 \examples{
-m2h(x=c('thalifendine','MTL'),type='molecule',OB='30',DL='0.18')
+
 m2h(x=c('thalifendine','rosthorin A'),type='molecule',OB='10',DL='0.01')
-.m2h(x=c('thalifendine',type='molecule',OB='30',DL='0.18')
+.m2h(x='thalifendine',type='molecule',OB='30',DL='0.18')
 m2h(x=c('445858','31423'),type='cid',OB='30',DL='0.18')
 m2h(x=c('445858','31423'),type='cid',OB='15',DL='0.02')
 }

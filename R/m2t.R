@@ -10,9 +10,14 @@
 #' .m2t(x='FER',type='molecule',tSource="tcmsp")
 #' .m2t(x='FER',type='molecule',tSource="pubchem")
 #' .m2t(x='445858',type='cid')
+#' .m2t(x='MOL002547',type='molecule_id',tSource="tcmsp")
+#' .m2t(x='MOL002547',type='molecule_id',tSource="pubchem")
 #'  m2t(x=c('FER','pyrene'),type='molecule')
 #'  m2t(x=c('445858','31423'),type='cid',tSource="tcmsp")
 #'  m2t(x=c('445858','31423'),type='cid',tSource="pubchem")
+#'  m2t(x=c('MOL002547','MOL000360'),type='molecule_id',tSource="tcmsp")
+#'  m2t(x=c('MOL002547','MOL000360'),type='molecule_id',tSource="pubchem")
+#'
 m2t<-function(x,type="cid",tSource="tcmsp")
 {
   y<-lapply(x,.m2t,type=type,tSource=tSource)
@@ -22,7 +27,7 @@ m2t<-function(x,type="cid",tSource="tcmsp")
 #' @export
 .m2t<-function(x,type="cid",tSource="tcmsp"){
   {
-    type <- match.arg(type,c("cid","molecule"))
+    type <- match.arg(type,c("cid","molecule","molecule_id"))
     tSource <- match.arg(tSource,c("tcmsp","pubchem"))
     if(length(x)>1)
       stop("Length of x must be 1!")
@@ -31,16 +36,23 @@ m2t<-function(x,type="cid",tSource="tcmsp")
     if(type=="cid")
     {
       if(tSource=="tcmsp")
-        y<-chemtarget[cid==x,][,c(1,2,4,18,23)]
+        y<-chemtarget[cid==x,][,c("molecule","molecule_id","cid","fullname","symbol")]
       else
-        y <- pubchemtarget[cid==x,][,c(2,3,5,9)]
+        y <- pubchemtarget[cid==x,][,c("molecule","molecule_id","cid","symbol")]
     }
-      else
+    else if(type=="molecule")
     {
       if(tSource=="tcmsp")
-        y<-chemtarget[molecule==x,][,c(1,2,4,18,23)]
+        y<-chemtarget[molecule==x,][,c("molecule","molecule_id","cid","fullname","symbol")]
       else
-        y <- pubchemtarget[molecule==x,][,c(2,3,5,9)]
+        y <- pubchemtarget[molecule==x,][,c("molecule","molecule_id","cid","symbol")]
+    }
+    else if(type=="molecule_id")
+    {
+      if(tSource=="tcmsp")
+        y<-chemtarget[molecule_id==x,][,c("molecule","molecule_id","cid","fullname","symbol")]
+      else
+        y <- pubchemtarget[molecule_id==x,][,c("molecule","molecule_id","cid","symbol")]
     }
   }
   y <- y[!duplicated(y),]

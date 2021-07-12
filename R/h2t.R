@@ -34,22 +34,23 @@ h2t<-function(x,type="latin",tSource="tcmsp",output="symbol")
       x<-drug[chinese%in%x,]$latin
   }
   m <- unique(.h2m(x,type='latin')$cid)
+  n <- unique(.h2m(x,type='latin')$molecule_id)
   {
     if(length(x)==1)
     {
       if(output=="symbol")
       {
         if(tSource=="tcmsp")
-          y <- m2t(x=m,type = "cid",tSource = "tcmsp")
+          y <- m2t(x=n,type = "molecule_id",tSource = "tcmsp")
         else
           y <- m2t(x=m,type = "cid",tSource = "pubchem")
       }
       else
       {
         if(tSource=="tcmsp")
-          y <- drugtarget[herb==x,][,c(1,2,3,5,19,24,9,10)]
+          y <- drugtarget[herb==x,][,c("herb","molecule","molecule_id","cid","fullname","symbol","ob","dl")]
         else
-          y <- pubchemtarget[herb==x,][,c(1,2,3,5,9)]
+          y <- pubchemtarget[herb==x,][,c("herb","molecule","molecule_id","cid","symbol")]
           }
     }
     else

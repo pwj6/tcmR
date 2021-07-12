@@ -16,9 +16,9 @@
 #' m2h(x=c('445858','31423'),type='cid',OB='15',DL='0.02')
 m2h<-function(x,type="cid",OB="30",DL="0.18")
 {
-   y<-lapply(x,.m2h,type=type,OB=OB,DL=DL)
+  y<-lapply(x,.m2h,type=type,OB=OB,DL=DL)
   names(y)<-(data.frame(x))$x
-y
+  y
 }
 #' @export
 .m2h<- function(x,type="cid",OB="30",DL="0.18"){
@@ -29,9 +29,9 @@ y
   }
   {
     if(type=="cid")
-      y<-drugchem[cid==x&ob>=OB&dl>=DL,][,c(1,2,3,5,9,10)]
+      y<-drugchem[cid==x&ob>=OB&dl>=DL,][,c("herb","molecule_id","molecule","cid","ob","dl")]
     else
-      y<-drugchem[molecule==x&ob>=OB&dl>=DL,][,c(1,2,3,5,9,10)]
+      y<-drugchem[molecule==x&ob>=OB&dl>=DL,][,c("herb","molecule_id","molecule","cid","ob","dl")]
   }
   y<-y[!duplicated(y$herb),]
   y

@@ -23,7 +23,12 @@ how to make molecule to symbol and fullname
 .m2t(x='FER',type='molecule',tSource="tcmsp")
 .m2t(x='FER',type='molecule',tSource="pubchem")
 .m2t(x='445858',type='cid')
+.m2t(x='MOL002547',type='molecule_id',tSource="tcmsp")
+.m2t(x='MOL002547',type='molecule_id',tSource="pubchem")
  m2t(x=c('FER','pyrene'),type='molecule')
  m2t(x=c('445858','31423'),type='cid',tSource="tcmsp")
  m2t(x=c('445858','31423'),type='cid',tSource="pubchem")
+ m2t(x=c('MOL002547','MOL000360'),type='molecule_id',tSource="tcmsp")
+ m2t(x=c('MOL002547','MOL000360'),type='molecule_id',tSource="pubchem")
+
 }

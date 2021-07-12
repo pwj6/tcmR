@@ -18,7 +18,8 @@ d2t<-function(x,type="diseaseID",score=0.3)
   y
 }
 #' @export
-.d2t<-function(x,type="diseaseID",score=0.3){
+.d2t<-function(x,type="diseaseID",score=0.3)
+{
   S <- score
   {
     type <- match.arg(type,c("diseaseID","disease"))
@@ -27,9 +28,9 @@ d2t<-function(x,type="diseaseID",score=0.3)
   }
   {
     if(type=="diseaseID")
-      y<-diseasetarget[diseaseID==x&score>=S,][,c(1,4)]
+      y<-diseasetarget[diseaseID==x&score>=S,][,c("symbol","score")]
     else
-      y<-diseasetarget[disease==x&score>=S,][,c(1,4)]
+      y<-diseasetarget[disease==x&score>=S,][,c("symbol","score")]
   }
   y
 }
