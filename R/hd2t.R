@@ -1,21 +1,23 @@
 #' How to make herb and disease to target
 #'
-#' @param hb hb is the name of the drug
+#' @param hb is the name of the drug
 #' @param Disease is the name of the disease
 #' @param htype is the type of the hb
 #' @param dtype is the type of the disease
+#' @param tSource is the source of drug targets
 #'
 #' @return targets and other information
 #' @export
 #'
 #' @examples
-#' hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID')
+#' hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
+#' hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='pubchem')
 #' hd2t(hb='Abutili Semen',Disease='Colonic Neoplasms',htype='latin',dtype='disease')
-hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID"){
+hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp"){
   {
     htype <- match.arg(htype,c("latin","pinyin","chinese"))
     dtype <- match.arg(dtype,c("diseaseID","disease"))
-
+    tSource <- match.arg(tSource,c("tcmsp","pubchem"))
     if(length(hb)>1)
       stop("Length of hb must be 1!")
     else if(htype=="pinyin")
@@ -29,13 +31,18 @@ hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID"){
   }
   {
     if(length(hb)==1)
-      y <- drugtarget[herb==hb,][,c(1,2,3,5,19,24,9,10)]
+    {
+      if(tSource=="tcmsp" )
+        y <- .h2t(x=hb,type='latin',tSource="tcmsp",output='both')
+      else
+        y <- .h2t(x=hb,type='latin',tSource="pubchem",output='both')
+    }
     else
       y<-NA
   }
   {
     if(length(hb)==1)
-      m <- drugchem[herb==hb,][,c(3,2,5,9,10)]
+      m <- .h2m(x=hb,type='latin')
     else
       m <-NA
   }
@@ -45,7 +52,7 @@ hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID"){
     else
       z<-diseasetarget[disease==Disease,]
   }
-  y<-y[!duplicated(y$fullname),]
+  y <- unique(y)
   y[y==""]<-NA
   m<-m[!duplicated(m$molecule),]
   n<-intersect(unique(y$symbol),unique(z$symbol))

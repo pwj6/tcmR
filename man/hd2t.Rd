@@ -4,16 +4,18 @@
 \alias{hd2t}
 \title{How to make herb and disease to target}
 \usage{
-hd2t(hb, Disease, htype = "latin", dtype = "diseaseID")
+hd2t(hb, Disease, htype = "latin", dtype = "diseaseID", tSource = "tcmsp")
 }
 \arguments{
-\item{hb}{hb is the name of the drug}
+\item{hb}{is the name of the drug}
 
 \item{Disease}{is the name of the disease}
 
 \item{htype}{is the type of the hb}
 
 \item{dtype}{is the type of the disease}
+
+\item{tSource}{is the source of drug targets}
 }
 \value{
 targets and other information
@@ -22,6 +24,7 @@ targets and other information
 How to make herb and disease to target
 }
 \examples{
-hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID')
+hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
+hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='pubchem')
 hd2t(hb='Abutili Semen',Disease='Colonic Neoplasms',htype='latin',dtype='disease')
 }
