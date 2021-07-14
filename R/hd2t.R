@@ -10,10 +10,19 @@
 #' @export
 #'
 #' @examples
-#' hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
-#' hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='pubchem')
-#' hd2t(hb='Abutili Semen',Disease='Colonic Neoplasms',htype='latin',dtype='disease')
-hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp"){
+#' .hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
+#' .hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='pubchem')
+#' .hd2t(hb='Abutili Semen',Disease='Colonic Neoplasms',htype='latin',dtype='disease')
+#' hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='pubchem')
+#' hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
+hd2t<-function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp"){
+  for(i in hb){
+    for(m in Disease){
+      print(lapply(i,Disease=m,.hd2t,htype=htype,dtype=dtype,tSource=tSource))
+    }
+  }
+}
+.hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp"){
   {
     htype <- match.arg(htype,c("latin","pinyin","chinese"))
     dtype <- match.arg(dtype,c("diseaseID","disease"))

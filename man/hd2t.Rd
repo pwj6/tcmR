@@ -24,7 +24,9 @@ targets and other information
 How to make herb and disease to target
 }
 \examples{
-hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
-hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='pubchem')
-hd2t(hb='Abutili Semen',Disease='Colonic Neoplasms',htype='latin',dtype='disease')
+.hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
+.hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='pubchem')
+.hd2t(hb='Abutili Semen',Disease='Colonic Neoplasms',htype='latin',dtype='disease')
+hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='pubchem')
+hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
 }
