@@ -15,12 +15,10 @@
 #' .hd2t(hb='Abutili Semen',Disease='Colonic Neoplasms',htype='latin',dtype='disease')
 #' hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='pubchem')
 #' hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
-hd2t<-function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp"){
-  for(i in hb){
-    for(m in Disease){
-      print(lapply(i,Disease=m,.hd2t,htype=htype,dtype=dtype,tSource=tSource))
-    }
-  }
+hd2t<-function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp")
+{
+  y<-lapply(hb,.hd2t,Disease=Disease,htype=htype,dtype=dtype,tSource=tSource)
+  y
 }
 .hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp"){
   {
