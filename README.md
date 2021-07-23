@@ -5,25 +5,27 @@ tcmR是一个基于R平台的中药网络药理学数据挖掘工具，可以实
 
 An R package on traditional Chinese medicine and common disease targets.Its functions include: transforming traditional Chinese medicine into compounds, compounds and their corresponding targets, targets of common diseases, common targets of traditional Chinese medicine and diseases, etc.
 
-Authors
+## Authors
 
 [周晓北](Zhou Xiaobei)
 
 [彭文杰](Peng Wenjie)
 
-Installation
+## Installation
 
-for Linux,Mac or Win user:
+### for Linux,Mac or Win user:
 
 ```r
 install.packages("devtools")
 devtools::install_github("pwj6/tcmR")
+```
 
-Usage
+## Usage
 
 ```r
 library(tcmR)
 y <- h2m(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin')
+```
 
 x is the name of traditional Chinese medicine, which can be the Chinese name(type='chinese') or Chinese Pinyin of traditional Chinese medicine(type='pinyin'), or the Latin name of traditional Chinese medicine(type='latin').
 
