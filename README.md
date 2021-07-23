@@ -7,9 +7,9 @@ An R package on traditional Chinese medicine and common disease targets.Its func
 
 ## Authors
 
-[周晓北](Zhou Xiaobei)
+[周晓北] (Zhou Xiaobei)
 
-[彭文杰](Peng Wenjie)
+[彭文杰] (Peng Wenjie)
 
 ## Installation
 
