@@ -15,14 +15,14 @@ Installation
 
 for Linux,Mac or Win user:
 
+```r
 install.packages("devtools")
-
 devtools::install_github("pwj6/tcmR")
 
 Usage
 
+```r
 library(tcmR)
-
 y <- h2m(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin')
 
 x is the name of traditional Chinese medicine, which can be the Chinese name(type='chinese') or Chinese Pinyin of traditional Chinese medicine(type='pinyin'), or the Latin name of traditional Chinese medicine(type='latin').
