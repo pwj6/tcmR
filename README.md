@@ -28,7 +28,6 @@ x is the name of traditional Chinese medicine, which can be the Chinese name(typ
 
 y is the relevant information of all compounds of the two traditional Chinese medicines,including molecule,molecule_id,cid.
 
-[t1.csv](https://github.com/pwj6/tcmR/files/6866417/t1.csv)
 
 
 
