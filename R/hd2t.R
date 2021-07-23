@@ -17,7 +17,13 @@
 #' hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
 hd2t<-function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp")
 {
-  y<-lapply(hb,.hd2t,Disease=Disease,htype=htype,dtype=dtype,tSource=tSource)
+  if(length(hb)>1)
+  {
+    names(hb) <- hb
+    y<-lapply(hb,.hd2t,Disease=Disease,htype=htype,dtype=dtype,tSource=tSource)
+  }
+  else
+    y <- .hd2t(hb=hb,Disease=Disease,htype=htype,dtype=dtype,tSource=tSource)
   y
 }
 .hd2t <- function(hb,Disease,htype="latin",dtype="diseaseID",tSource="tcmsp"){
