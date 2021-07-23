@@ -29,7 +29,7 @@ y <- h2m(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin')
 
 "x" is the name of traditional Chinese medicine, which can be the Chinese name(type='chinese') or Chinese Pinyin of traditional Chinese medicine(type='pinyin'), or the Latin name of traditional Chinese medicine(type='latin').
 
-y is the relevant information of all compounds of the two traditional Chinese medicines,including molecule,molecule_id,cid.The results are as follows:
+The function of hd2t is to query the corresponding targets of diseases and traditional Chinese medicine, the compounds included in traditional Chinese medicine and the common targets of diseases and traditional Chinese medicine,including molecule,molecule_id,cid.The results are as follows:
 
 ```text
 y
