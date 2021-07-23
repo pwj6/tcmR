@@ -649,6 +649,7 @@ $huangqi$drug_disease_target
 4     MAPK14
 ```
 
+## Relational graph of all functions and data
 
 
 
@@ -674,3 +675,7 @@ $huangqi$drug_disease_target
 
 
 
+
+
+
+![1627034863](https://user-images.githubusercontent.com/72773400/126767945-38e5eee1-443a-4590-b561-a9c731734f5d.png)
