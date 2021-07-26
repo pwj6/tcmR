@@ -1,9 +1,9 @@
 tcmR
 ==========
 
-tcmR是一个基于R平台的中药网络药理学数据挖掘工具，可以实现的功能包括：将中药转化为化合物、化合物及其对应靶点、常见疾病的靶点、中药和疾病的共同靶点等。
+tcmR是一个用于中药网络药理学数据挖掘和分析的R包。 其功能包括：解析天然药有效活性成分、天然药化合物作用靶点以及常见疾病靶点、天然药与疾病的共作用靶点。
 
-An R package on traditional Chinese medicine and common disease targets.Its functions include: transforming traditional Chinese medicine into compounds, compounds and their corresponding targets, targets of common diseases, common targets of traditional Chinese medicine and diseases, etc.
+tcmR is an R package for TCM network pharmacology data mining and analyzing. Its functions include: analyzing the effective active ingredients of natural medicines, the targets of natural medicine compounds, common disease targets, and the co-action targets of natural medicines and diseases.
 
 ## Authors
 
@@ -19,6 +19,37 @@ An R package on traditional Chinese medicine and common disease targets.Its func
 install.packages("devtools")
 devtools::install_github("pwj6/tcmR")
 ```
+
+## Relational graph of all functions and data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![1627034863](https://user-images.githubusercontent.com/72773400/126767945-38e5eee1-443a-4590-b561-a9c731734f5d.png)
 
 ## Usage
 
@@ -648,34 +679,3 @@ $huangqi$drug_disease_target
 3       NOS2
 4     MAPK14
 ```
-
-## Relational graph of all functions and data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![1627034863](https://user-images.githubusercontent.com/72773400/126767945-38e5eee1-443a-4590-b561-a9c731734f5d.png)
