@@ -4,10 +4,16 @@
 \alias{h2m}
 \title{how to make herb to molecule or cid of molecule}
 \usage{
-h2m(x, type = "latin")
+h2m(x, type = "latin", OB = 30, DL = 0.18)
 }
 \arguments{
-\item{x}{an variable}
+\item{x}{the name of drug}
+
+\item{type}{the type of drug name}
+
+\item{OB}{the oral bioavailability of the compound}
+
+\item{DL}{the drug-like properties of compounds}
 }
 \value{
 molecule and cid
@@ -17,6 +23,6 @@ how to make herb to molecule or cid of molecule
 }
 \examples{
 .h2m(x='Ziziphi Spinosae Semen',type='latin')
-.h2m(x='houpu',type='pinyin')
+.h2m(x='houpu',type='pinyin',OB=40,DL=0.2)
 h2m(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin')
 }

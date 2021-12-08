@@ -4,18 +4,30 @@
 \alias{hd2t}
 \title{How to make herb and disease to target}
 \usage{
-hd2t(hb, Disease, htype = "latin", dtype = "diseaseID", tSource = "tcmsp")
+hd2t(
+  hb,
+  Disease,
+  htype = "latin",
+  dtype = "diseaseID",
+  tSource = "tcmsp",
+  OB = 30,
+  DL = 0.18
+)
 }
 \arguments{
-\item{hb}{is the name of the drug}
+\item{hb}{the name of the drug}
 
-\item{Disease}{is the name of the disease}
+\item{Disease}{the name of the disease}
 
-\item{htype}{is the type of the hb}
+\item{htype}{the type of the hb}
 
-\item{dtype}{is the type of the disease}
+\item{dtype}{the type of the disease}
 
-\item{tSource}{is the source of drug targets}
+\item{tSource}{the source of drug targets}
+
+\item{OB}{the oral bioavailability of the compound}
+
+\item{DL}{the drug-like properties of compounds}
 }
 \value{
 targets and other information
@@ -24,9 +36,9 @@ targets and other information
 How to make herb and disease to target
 }
 \examples{
-.hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
+.hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='tcmsp',OB=35,DL=0.20)
 .hd2t(hb='mahuang',Disease='C0009375',htype='pinyin',dtype='diseaseID',tSource='pubchem')
 .hd2t(hb='Abutili Semen',Disease='Colonic Neoplasms',htype='latin',dtype='disease')
-hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='pubchem')
+hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='pubchem',OB=40,DL=0.25)
 hd2t(hb=c('mahuang','huangqi'),Disease='C0019209',htype='pinyin',dtype='diseaseID',tSource='tcmsp')
 }

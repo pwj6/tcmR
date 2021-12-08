@@ -1,27 +1,29 @@
 #' How to make herb to targets
 #'
-#' @param x is the information adout herb
-#' @param type is the type of the x
-#' @param tSource is the source of targets
-#' @param output is the type of return
+#' @param x the name of drug
+#' @param type the type of the x
+#' @param tSource the source of targets
+#' @param output the type of return
+#' @param OB the oral bioavailability of the compound
+#' @param DL the drug-like properties of compounds
 #' @return symbol and fullname
 #' @export
 #'
 #' @examples
 #' .h2t(x='Ziziphi Spinosae Semen',type='latin',tSource="tcmsp",output='symbol')
 #' .h2t(x='Ziziphi Spinosae Semen',type='latin',tSource="pubchem",output='symbol')
-#' .h2t(x='huangqi',type='pinyin',tSource="tcmsp",output='both')
-#' h2t(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin',tSource="pubchem",output='symbol')
+#' .h2t(x='huangqi',type='pinyin',tSource="tcmsp",output='both',OB=45,DL=0.18)
+#' h2t(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin',tSource="pubchem",output='symbol',OB=40,DL=0.3)
 #' h2t(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin',tSource="tcmsp",output='both')
-h2t<-function(x,type="latin",tSource="tcmsp",output="symbol")
+h2t<-function(x,type="latin",tSource="tcmsp",output="symbol",OB=30,DL=0.18)
 {
-  y<-lapply(x,.h2t,type=type,tSource=tSource,output=output)
+  y<-lapply(x,.h2t,type=type,tSource=tSource,output=output,OB=OB,DL=DL)
   names(y)<-(data.frame(x))$x
   y
 }
 #' @export
-.h2t<-function(x,type="latin",tSource="tcmsp",output="symbol")
-  {
+.h2t<-function(x,type="latin",tSource="tcmsp",output="symbol",OB=30,DL=0.18)
+{
   {
     type <- match.arg(type,c("latin","pinyin","chinese"))
     tSource <- match.arg(tSource,c("tcmsp","pubchem"))
@@ -33,8 +35,10 @@ h2t<-function(x,type="latin",tSource="tcmsp",output="symbol")
     else if(type=="chinese")
       x<-drug[chinese%in%x,]$latin
   }
-  m <- unique(.h2m(x,type='latin')$cid)
-  n <- unique(.h2m(x,type='latin')$molecule_id)
+  a <- OB
+  b <- DL
+  m <- unique(.h2m(x,type='latin',OB=a,DL=b)$cid)
+  n <- unique(.h2m(x,type='latin',OB=a,DL=b)$molecule_id)
   {
     if(length(x)==1)
     {
@@ -48,10 +52,10 @@ h2t<-function(x,type="latin",tSource="tcmsp",output="symbol")
       else
       {
         if(tSource=="tcmsp")
-          y <- drugtarget[herb==x,][,c("herb","molecule","molecule_id","cid","fullname","symbol","ob","dl")]
+          y <- drugtarget[herb==x&ob>=a&dl>=b,][,c("herb","molecule","molecule_id","cid","fullname","symbol","ob","dl")]
         else
-          y <- pubchemtarget[herb==x,][,c("herb","molecule","molecule_id","cid","symbol")]
-          }
+          y <- pubchemtarget[herb==x&ob>=a&dl>=b,][,c("herb","molecule","molecule_id","cid","symbol","ob","dl")]
+      }
     }
     else
       y<-NA

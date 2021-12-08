@@ -4,16 +4,27 @@
 \alias{h2t}
 \title{How to make herb to targets}
 \usage{
-h2t(x, type = "latin", tSource = "tcmsp", output = "symbol")
+h2t(
+  x,
+  type = "latin",
+  tSource = "tcmsp",
+  output = "symbol",
+  OB = 30,
+  DL = 0.18
+)
 }
 \arguments{
-\item{x}{is the information adout herb}
+\item{x}{the name of drug}
 
-\item{type}{is the type of the x}
+\item{type}{the type of the x}
 
-\item{tSource}{is the source of targets}
+\item{tSource}{the source of targets}
 
-\item{output}{is the type of return}
+\item{output}{the type of return}
+
+\item{OB}{the oral bioavailability of the compound}
+
+\item{DL}{the drug-like properties of compounds}
 }
 \value{
 symbol and fullname
@@ -24,7 +35,7 @@ How to make herb to targets
 \examples{
 .h2t(x='Ziziphi Spinosae Semen',type='latin',tSource="tcmsp",output='symbol')
 .h2t(x='Ziziphi Spinosae Semen',type='latin',tSource="pubchem",output='symbol')
-.h2t(x='huangqi',type='pinyin',tSource="tcmsp",output='both')
-h2t(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin',tSource="pubchem",output='symbol')
+.h2t(x='huangqi',type='pinyin',tSource="tcmsp",output='both',OB=45,DL=0.18)
+h2t(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin',tSource="pubchem",output='symbol',OB=40,DL=0.3)
 h2t(x=c('Ziziphi Spinosae Semen','Abri Herba'),type='latin',tSource="tcmsp",output='both')
 }
